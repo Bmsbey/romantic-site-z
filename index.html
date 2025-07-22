@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday ❤️</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <!-- Kalpler -->
+  <div id="heart-container"></div>
+
+  <!-- 🎵 Müzik Butonu -->
+  <div id="music-launcher" class="music-launcher top">
+    <button id="playMusic">💖 Lütfen açmak için tıkla 🎵</button>
+  </div>
+
+  <!-- İçerik (hikaye ve müzik yanyana) -->
+  <main class="content-layout">
+    <!-- Hikaye -->
+    <div class="story">
+      <h1>🎂 İyi ki Doğdun!</h1>
+      <section>
+        {% for p in lines %}
+          <p>{{ p }}</p>
+        {% endfor %}
+      </section>
+    </div>
+
+    <!-- Müzik Kutusu -->
+    <div class="music-side" id="musicBox">
+      <iframe src="https://open.spotify.com/embed/track/4IkzrF0iNCnPt4bjGofLfN?utm_source=generator"
+        width="280" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media"
+        loading="lazy"></iframe>
+
+      <iframe src="https://open.spotify.com/embed/track/3FoxsQsG5Z9bMuqdF5szJO?utm_source=generator"
+        width="280" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media"
+        loading="lazy"></iframe>
+
+      <iframe src="https://open.spotify.com/embed/track/71FCChMWw5JpeSjnrVcKsq?utm_source=generator"
+        width="280" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media"
+        loading="lazy"></iframe>
+
+      <iframe src="https://open.spotify.com/embed/track/0zJSenlA0GF3F1xwk2BQz8?utm_source=generator"
+        width="280" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media"
+        loading="lazy"></iframe>
+
+      <iframe src="https://open.spotify.com/embed/track/4gmBhqrWnmozE2w1znhSPH?utm_source=generator"
+        width="280" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media"
+        loading="lazy"></iframe>
+    </div>
+  </main>
+
+  <!-- Fotoğraf -->
+  <footer>
+    <img src="{{ url_for('static', filename='img/us.jpg') }}" alt="Our Photo">
+    <p>Seninle nice yıllara ♥</p>
+  </footer>
+
+  <!-- Scriptler -->
+  <script src="{{ url_for('static', filename='js/hearts.js') }}"></script>
+  <script>
+    document.getElementById('musicBox').style.display = 'none';
+    document.getElementById('playMusic').addEventListener('click', () => {
+      document.getElementById('musicBox').style.display = 'flex';
+      document.getElementById('music-launcher').remove();
+    });
+  </script>
+</body>
+</html>
